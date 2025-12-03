@@ -67,12 +67,7 @@ def pytest_configure(config):
 
 
 def pytest_collection_modifyitems(config, items):
-    for item in items:
-        for marker in item.iter_markers():
-            if marker.name == "smoke":
-                item.add_marker(pytest.mark.allure_label("tag", "smoke"))
-            elif marker.name == "regression":
-                item.add_marker(pytest.mark.allure_label("tag", "regression"))
+    pass
 
 
 @pytest.fixture(autouse=True)
