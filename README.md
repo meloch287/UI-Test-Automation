@@ -33,6 +33,12 @@
 - **Page Object Model (POM)**
 - **Page Factory**
 
+### Возможности Allure
+- Автоматические скриншоты при падении тестов (реализовано в `conftest.py` через хук `pytest_runtest_makereport`)
+- Шаги тестов с декораторами `@allure.step()`
+- Прикрепление URL страницы при ошибке
+- Категоризация тестов через `@allure.feature()`, `@allure.story()`, `@allure.severity()`
+
 ## Требования к системе
 
 - Python 3.13
