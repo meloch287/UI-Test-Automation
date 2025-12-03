@@ -1,0 +1,11 @@
+class ServicesPageLocators:
+    PAGE_TITLE = "h1"
+    MAIN_CONTENT = "main, .content, .services-content"
+    SERVICES_LIST = ".services-list, .services, ul.services"
+    SERVICE_ITEM = ".service-item, .service, .service-card"
+    SERVICE_TITLE = ".service-title, .service h3, .service-card h3"
+    SERVICE_DESCRIPTION = ".service-description, .service p"
+    MOBILE_DEV = "a:has-text('Мобильная разработка'), .mobile-dev"
+    WEB_DEV = "a:has-text('Веб-разработка'), .web-dev"
+    DESIGN = "a:has-text('Дизайн'), .design"
+    ORDER_BUTTON = ".order-btn, button:has-text('Заказать'), a:has-text('Заказать')"

@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "effective-mobile-tests"
+version = "1.0.0"
+description = "UI Test Automation for effective-mobile.ru"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "playwright>=1.40.0",
+    "pytest>=7.4.3",
+    "pytest-xdist>=3.5.0",
+    "pytest-rerunfailures>=13.0",
+    "allure-pytest>=2.13.2",
+    "python-dotenv>=1.0.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short --strict-markers --alluredir=allure-results"
+markers = [
+    "smoke: Smoke тесты (быстрые, критичные)",
+    "regression: Регрессионные тесты",
+    "navigation: Тесты навигации",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+    | \.venv
+    | venv
+    | __pycache__
+    | allure-results
+    | allure-report
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+skip = [".git", ".venv", "venv", "__pycache__"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
